@@ -27,7 +27,7 @@ const Navbar = () => {
                 <div className="">
                     <a href="#" className='text-3xl font-bold'>Gr<span className='text-orange-500'>O</span>cify</a>
                 </div>
-                <div className="md:flex hidden gap-8 text-2xl">
+                <div className="md:flex hidden gap-8 text-xl">
                     <a href="Home" className='font-semibold tracking-wider text-orange-500'>Home</a>
                     <a href="About Us" className='font-semibold tracking-wider text-zinc-800 hover:text-orange-500'>About Us</a>
                     <a href="Process" className='font-semibold tracking-wider text-zinc-800 hover:text-orange-500'>Process</a>
