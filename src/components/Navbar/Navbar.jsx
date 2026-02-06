@@ -22,7 +22,7 @@ const Navbar = () => {
     },[])
 
     return (
-        <header className={`bg-white fixed top-0 left-0 right-0 ${isScrolled ? 'drop-shadow-[0_4px_25px_rgba(0,0,0,0.2)]':""} `}>
+        <header className={`bg-white z-99 fixed top-0 left-0 right-0 ${isScrolled ? 'drop-shadow-[0_4px_25px_rgba(0,0,0,0.2)]':""} `}>
             <nav className={`max-w-350  flex m-auto md:h-[14vh] h-[12vh] px-10 items-center justify-between`}>
                 <div className="">
                     <a href="#" className='text-3xl font-bold'>Gr<span className='text-orange-500'>O</span>cify</a>
