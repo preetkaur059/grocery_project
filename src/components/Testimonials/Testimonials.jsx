@@ -20,7 +20,7 @@ const Testimonials = () => {
             <div className="max-w-[1400px] mx-auto px-10 py-15">
                 <Heading highlight='Customers' heading='Saying' />
 
-                <div className="py-5 flex justify-end gap-x-3">
+                <div className="py-5 md:mt-0 mt-10 flex justify-end gap-x-3">
                     <button className='custom-next text-2xl rounded-lg flex justify-center items-center h-11 w-11 bg-zinc-200 text-zinc-800 hover:bg-gradient-to-b hover:from-orange-400 hover:to-orange-600 hover:text-white cursor-pointer transition-all'><MdOutlineArrowBackIosNew /></button>
                     <button className='custom-prev text-2xl rounded-lg flex justify-center items-center h-11 w-11 bg-zinc-200 text-zinc-800 hover:bg-gradient-to-b hover:from-orange-400 hover:to-orange-600 hover:text-white cursor-pointer transition-all'><MdOutlineArrowForwardIos /></button>
                 </div>
@@ -41,10 +41,7 @@ const Testimonials = () => {
                                     <div>
                                         <h5 className="text-xl text-zinc-900 font-bold">{item.name}</h5>
                                         <p className="text-zinc-600">{item.profession}</p>
-                                        <span className="flex text-yellow-400 mt-2 text-xl gap-1">  {Array(item.rating)
-                                            .fill()
-                                            .map((_, i) => (
-                                                <FaStar key={i} />))} </span>
+                                        <span className="flex text-yellow-400 mt-2 text-xl gap-1">{Array(item.rating).fill().map((_, i) => ( <FaStar key={i} />))} </span>
                                                 </div>
                                                 </div>
                                             <div className="min-h-[15vh]">

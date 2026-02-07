@@ -6,7 +6,7 @@ import Cards from '../Cards/Cards'
 
     const CategoryPage = ({ title, bgImage, categories = [] }) => {
           
-    let filteredItems = categories.includes('All') ? ProductList : ProductList.filter(item=> categories.includes(item.category))
+    const filteredItems = categories.includes('All') ? ProductList : ProductList.filter(item=> categories.includes(item.category))
     const renderProduct = filteredItems.map((product) => {
         return (
             <Cards image ={product.image} name = {product.name} price = {product.price} />
