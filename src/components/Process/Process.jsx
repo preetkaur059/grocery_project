@@ -29,7 +29,7 @@ const Process = () => {
             <div className="w-fit mr-auto">
                 <Heading highlight="Our" heading="Process" />
             </div>
-            <div className="flex flex-wrap -mt-35 items-center justify-center ">{renderSteps}</div>
+            <div className="flex flex-wrap -mt-40 items-center justify-center ">{renderSteps}</div>
         </div>
     </section>
   )

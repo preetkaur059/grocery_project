@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Heading from '../Heading/Heading'
-import Button from '../Button/Button'
 import ProductList from '../ProductList/ProductList'
 import Cards from '../Cards/Cards'
+import { Link } from 'react-router-dom'
 
 const Product = () => {
   const categories = ['All', 'Fruits', 'Vegetables', 'Dairy', 'SeaFood']
@@ -39,7 +39,7 @@ const Product = () => {
                     {renderCards}
                     </div>
                     <div className='w-fit mx-auto mt-10'>
-                    <Button content ="View All"/>
+                    <Link to= '/allproducts' className='bg-gradient-to-b from-orange-400 to-orange-500 text-white px-8 py-3 rounded-lg md:text-lg text-md hover:scale-105 hover:from-to-orange-600 transition-all duration-300 cursor-pointer'>View All</Link>
                 </div>
         </div>
     </section>

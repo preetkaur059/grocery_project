@@ -17,7 +17,7 @@ const Testimonials = () => {
 
     return (
         <section>
-            <div className="max-w-[1400px] mx-auto px-10 py-20">
+            <div className="max-w-[1400px] mx-auto px-10 py-15">
                 <Heading highlight='Customers' heading='Saying' />
 
                 <div className="py-5 flex justify-end gap-x-3">

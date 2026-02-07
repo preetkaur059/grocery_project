@@ -40,11 +40,11 @@ const Values = () => {
 
   return (
     <section>
-        <div className=" max-w-[1400px] mx-auto px-10 py-15">
+        <div className=" max-w-[1400px] mx-auto px-10 md:py-15 py-10">
             <Heading highlight = "Our" heading = "Values" />
 
             {/* left values  */}
-            <div className="flex gap-5 mt-15 md:flex-row flex-col">
+            <div className="flex gap-5 mt-10 md:flex-row flex-col">
                 <div className=" flex flex-col justify-between">
                 {leftValues}</div>
             
