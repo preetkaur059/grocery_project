@@ -29,7 +29,7 @@ const Navbar = () => {
                     <Link to="/" className='text-3xl font-bold'>Gr<span className='text-orange-500'>O</span>cify</Link>
                 </div>
                 <div className="md:flex hidden gap-8 text-xl">
-                    <a href="Home" className='font-semibold tracking-wider text-orange-500'>Home</a>
+                    <Link to="/" className='font-semibold tracking-wider text-orange-500'>Home</Link>
                     <a href="About Us" className='font-semibold tracking-wider text-zinc-800 hover:text-orange-500'>About Us</a>
                     <a href="Process" className='font-semibold tracking-wider text-zinc-800 hover:text-orange-500'>Process</a>
                     <a href="Contact Us" className='font-semibold tracking-wider text-zinc-800  hover:text-orange-500'>Contact Us</a>

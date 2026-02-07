@@ -64,7 +64,8 @@ const products = [
     {
         id: 6,
         name: 'Shrimp',
-        price: 3.5, category: 'SeaFood',
+        price: 3.5, 
+        category: 'SeaFood',
         image: Shrimp
     },
     {

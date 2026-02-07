@@ -7,7 +7,7 @@ import customer4 from '../../assets/customer4.jpg'
 import customer5 from '../../assets/customer5.jpg'
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
-import { Navigation } from 'swiper/modules'
+import { Autoplay,Navigation } from 'swiper/modules'
 import { FaStar } from 'react-icons/fa'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -25,7 +25,7 @@ const Testimonials = () => {
                     <button className='custom-prev text-2xl rounded-lg flex justify-center items-center h-11 w-11 bg-zinc-200 text-zinc-800 hover:bg-gradient-to-b hover:from-orange-400 hover:to-orange-600 hover:text-white cursor-pointer transition-all'><MdOutlineArrowForwardIos /></button>
                 </div>
 
-                <Swiper navigation={{ nextEl: ".custom-prev", prevEl: ".custom-next" }} modules={[Navigation]} loop={true} spaceBetween={20} breakpoints={{
+                <Swiper navigation={{ nextEl: ".custom-prev", prevEl: ".custom-next" }} modules={[Navigation,Autoplay]} autoplay={{delay: 2500, pauseOnMouseEnter: true, disableOnInteraction: false,}} loop={true} spaceBetween={20} breakpoints={{
                     640: { slidesPerView: 1 },
                     768: { slidesPerView: 2 },
                     1024: { slidesPerView: 3 },
