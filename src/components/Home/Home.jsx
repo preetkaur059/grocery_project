@@ -17,21 +17,26 @@ const Home = () => {
     const section = document.getElementById('product-section');
 
     if (section) {
-      section.scrollIntoView({behavior:'smooth'});
+      section.scrollIntoView({ behavior: 'smooth' });
     }
   }
 
   return (
     <div>
-   <Navbar handleScroll={handleScroll}/>
-   <Hero/>
-   <Category />
-   <Values />
-   <Product/>
-   <Discount/>
-   <Process />
-   <Testimonials/>
-   </div>
+      <Navbar
+        handleScroll={handleScroll}
+        setSearchItem={setSearchItem}
+      />
+      <Hero />
+      <Category />
+      <Values />
+      <Product
+        searchItem={searchItem}
+      />
+      <Discount />
+      <Process />
+      <Testimonials />
+    </div>
   )
 }
 
