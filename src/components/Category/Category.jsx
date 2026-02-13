@@ -14,7 +14,7 @@ const Category = () => {
             <img src={card.image} className='absolute bottom-0' alt="" />
             </div>
 
-            <div className="bg-zinc-300 pt-17 p-8 rounded-xl">
+            <div className="bg-zinc-200 pt-17 p-8 rounded-xl">
                 <h2 className='md:text-3xl text-2xl font-bold'>{card.title}</h2>
                 <p className='mt-3 md:text-lg text-lg mb-9'>{card.description}</p>
                 <Link to={card.path} className='bg-gradient-to-b from-orange-400 to-orange-500 text-white px-8 py-3 rounded-lg md:text-lg text-md hover:scale-105 hover:from-to-orange-600 transition-all duration-300 cursor-pointer'>See All</Link>

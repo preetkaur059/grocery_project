@@ -4,27 +4,27 @@ import ProductList from '../ProductList/ProductList'
 import Cards from '../Cards/Cards'
 import { Link } from 'react-router-dom'
 
-const Product = ({searchItem}) => {
+const Product = ({ searchItem }) => {
     const categories = ['All', 'Fruits', 'Vegetables', 'Dairy', 'SeaFood']
     const [activeTab, setActiveTab] = useState('All');
 
     let filteredItems = activeTab === 'All' ? ProductList : ProductList.filter(item => item.category === activeTab);
 
-    filteredItems = filteredItems.filter(product =>
+    // Search filter
+    const searchedItems = filteredItems.filter(product =>
         product.name.toLowerCase().includes(searchItem.toLowerCase())
     );
 
-    const renderCards = filteredItems.slice(0, 8).map(
-        product => {
-            return (
-                <Cards
-                    key={product.id}
-                    image={product.image}
-                    name={product.name}
-                    price={product.price} />
-            )
-        }
-    )
+    // Render cards
+    const renderCards = searchedItems.slice(0, 8).map(product => (
+        <Cards
+            key={product.id}
+            image={product.image}
+            name={product.name}
+            price={product.price}
+        />
+    ));
+
 
     return (
         <section>
@@ -43,7 +43,13 @@ const Product = ({searchItem}) => {
                 </div>
                 {/* Product Listing  */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-7 mt-20">
-                    {renderCards}
+                    {searchedItems.length === 0 ?
+                    <p>404 page not found</p>
+                        // (<div className = "bg-[#6A9C92]"><span class=' one'>4</span>
+                        //  <span class='two'>0</span>
+                        //  <span class='mid '>ops!</span>
+                        //  <span class='three'>4</span></>) :
+                        :(renderCards)}
                 </div>
                 <div className='w-fit mx-auto mt-10'>
                     <Link to='/allproducts' className='bg-gradient-to-b from-orange-400 to-orange-500 text-white px-8 py-3 rounded-lg md:text-lg text-md hover:scale-105 hover:from-to-orange-600 transition-all duration-300 cursor-pointer'>View All</Link>

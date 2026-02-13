@@ -7,6 +7,7 @@ import Seafood from './components/Seafood/Seafood'
 import AllProducts from './components/AllProducts/AllProducts'
 import Layout from './components/Layout/Layout'
 
+
 const App = () => {
   const router = createBrowserRouter([
     {
