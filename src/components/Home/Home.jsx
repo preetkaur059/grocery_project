@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import Hero from '../Hero/Hero'
 import Category from '../Category/Category'
@@ -10,8 +10,20 @@ import Testimonials from '../Testimonials/Testimonials'
 import Footer from '../Footer/Footer'
 
 const Home = () => {
+
+  const [searchItem, setSearchItem] = useState('');
+
+  const handleScroll = () => {
+    const section = document.getElementById('product-section');
+
+    if (section) {
+      section.scrollIntoView({behavior:'smooth'});
+    }
+  }
+
   return (
     <div>
+   <Navbar handleScroll={handleScroll}/>
    <Hero/>
    <Category />
    <Values />

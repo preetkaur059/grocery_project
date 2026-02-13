@@ -21,7 +21,7 @@ const Product = () => {
 
   return (
     <section>
-        <div className="max-w-[1400px] mx-auto px-10 py-20">
+        <div id='product-section' className="max-w-[1400px] mx-auto px-10 py-20">
             <Heading highlight = "Our" heading = "Products"/>
             
                 <div className="flex gap-4 justify-center mt-10 flex-wrap">

@@ -6,7 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { BiMenuAltRight } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({handleScroll}) => {
     const [showMenu, setShowMenu] = useState(false);
 
     const toggleMenu = () =>{
@@ -37,7 +37,11 @@ const Navbar = () => {
                 {/* nav action  */}
                 <div className="flex items-center gap-x-5">
                     <div className="md:flex hidden border-orange-500 border-2 rounded-full">
-                        <input type="text" name='text' id='text' className='flex-1 h-[5vh] px-3 focus:outline-none' placeholder='Search...' autoComplete='off' />
+
+                        {/* search bar  */}
+                        <input type="text" name='text' id='text' className='flex-1 h-[5vh] px-3 focus:outline-none' 
+                        onFocus={handleScroll}
+                        placeholder='Search...' autoComplete='off' />
                         <button className='h-10 w-10 text-white flex justify-center items-center rounded-full text-xl bg-gradient-to-b from-orange-400 to-orange-500 '>
                             <FaSearch />
                         </button>
