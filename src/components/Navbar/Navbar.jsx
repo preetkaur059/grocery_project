@@ -3,6 +3,7 @@ import { IoHeartSharp } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { RiShoppingBag4Fill } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FaUserAlt } from "react-icons/fa";
 import { BiMenuAltRight } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 
@@ -47,11 +48,14 @@ const Navbar = ({handleScroll,setSearchItem}) => {
                             <FaSearch />
                         </button>
                     </div>
-                    <a href="#" className='text-zinc-800 text-2xl'>
+                    <a href="#" className='text-zinc-800 text-3xl'>
                         <IoHeartSharp />
                     </a>
-                    <a href="#" className='text-zinc-800 text-2xl'>
+                    <a href="#" className='text-zinc-800 text-3xl'>
                         <RiShoppingBag4Fill />
+                    </a>
+                    <a href="#" className='text-zinc-800 text-2xl'>
+                        <FaUserAlt />
                     </a>
                     <a href="#"  onClick={toggleMenu} className= {`text-zinc-800 text-2xl md:hidden ${showMenu ? '<BiMenuAltRight />' : '<GiHamburgerMenu />' }`}>
                         <GiHamburgerMenu />
