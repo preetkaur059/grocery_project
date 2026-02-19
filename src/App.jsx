@@ -5,6 +5,8 @@ import Fruits from './components/Fruits/Fruits'
 import Dairy from './components/Dairy/Dairy'
 import Seafood from './components/Seafood/Seafood'
 import AllProducts from './components/AllProducts/AllProducts'
+import Cart from './components/Cart/Cart'
+import Wishlist from './components/Wishlist/Wishlist'
 import Layout from './components/Layout/Layout'
 
 
@@ -33,6 +35,14 @@ const App = () => {
     {
       path: '/allproducts',
       element: <AllProducts/>,
+    },
+    {
+      path: '/wishlist',
+      element: <Wishlist/>,
+    },
+    {
+      path: '/cart',
+      element: <Cart/>,
     },
   ]
 }

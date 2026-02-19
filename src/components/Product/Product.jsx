@@ -3,6 +3,7 @@ import Heading from '../Heading/Heading'
 import ProductList from '../ProductList/ProductList'
 import Cards from '../Cards/Cards'
 import { Link } from 'react-router-dom'
+import noproductfound from '../../assets/no-product-found.webp'
 
 const Product = ({ searchItem }) => {
     const categories = ['All', 'Fruits', 'Vegetables', 'Dairy', 'SeaFood']
@@ -44,15 +45,11 @@ const Product = ({ searchItem }) => {
                 {/* Product Listing  */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-7 mt-20">
                     {searchedItems.length === 0 ?
-                    <p>404 page not found</p>
-                        // (<div className = "bg-[#6A9C92]"><span class=' one'>4</span>
-                        //  <span class='two'>0</span>
-                        //  <span class='mid '>ops!</span>
-                        //  <span class='three'>4</span></>) :
-                        :(renderCards)}
+                    <p className='col-span-full flex justify-center items-center'><img src={noproductfound} alt="" /></p>
+                     :(renderCards)}
                 </div>
                 <div className='w-fit mx-auto mt-10'>
-                    <Link to='/allproducts' className='bg-gradient-to-b from-orange-400 to-orange-500 text-white px-8 py-3 rounded-lg md:text-lg text-md hover:scale-105 hover:from-to-orange-600 transition-all duration-300 cursor-pointer'>View All</Link>
+                    <Link to='/allproducts' className='bg-gradient-to-b from-orange-400 to-orange-500 text-white px-8 py-3 rounded-lg md:text-lg text-md hover:scale-105 hover:from-to-orange-600 transition-all duration-300 inline-block cursor-pointer'>View All</Link>
                 </div>
             </div>
         </section>

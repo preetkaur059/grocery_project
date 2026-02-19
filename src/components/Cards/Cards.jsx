@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaHeart, FaPlus } from 'react-icons/fa'
 import Button from '../Button/Button'
+import { Link } from 'react-router-dom'
 
 const Cards = ({image, name, price}) => {
   return (
@@ -22,7 +23,8 @@ const Cards = ({image, name, price}) => {
         <div className="text-center ">
             <h3 className='text-xl font-semibold'>{name}</h3>
             <p className={`text-2xl font-bold mb-3 my-2 `}>${price.toFixed(2)}</p>
-            <Button content='Add To Cart'/>
+            <Link to='/cart' className='inline-block mt-2 mb-2 bg-gradient-to-b from-orange-400 to-orange-500 text-white px-8 py-3 rounded-lg md:text-lg text-md hover:scale-105 hover:from-to-orange-600 transition-all duration-300   cursor-pointer'>Add To Cart</Link>
+            
         </div>
 
     </div>
