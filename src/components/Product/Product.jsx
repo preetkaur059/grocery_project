@@ -4,10 +4,14 @@ import ProductList from '../ProductList/ProductList'
 import Cards from '../Cards/Cards'
 import { Link } from 'react-router-dom'
 import noproductfound from '../../assets/no-product-found.webp'
+import { useContext } from "react";
+import { StoreContext } from "../../context/StoreContext";
 
 const Product = ({ searchItem }) => {
     const categories = ['All', 'Fruits', 'Vegetables', 'Dairy', 'SeaFood']
     const [activeTab, setActiveTab] = useState('All');
+
+    const { addToCart } = useContext(StoreContext);
 
     let filteredItems = activeTab === 'All' ? ProductList : ProductList.filter(item => item.category === activeTab);
 
@@ -20,9 +24,11 @@ const Product = ({ searchItem }) => {
     const renderCards = searchedItems.slice(0, 8).map(product => (
         <Cards
             key={product.id}
-            image={product.image}
-            name={product.name}
-            price={product.price}
+            // image={product.image}
+            // name={product.name}
+            // price={product.price}
+            product={product}   
+            addToCart={addToCart}
         />
     ));
 

@@ -1,4 +1,4 @@
-import React, { Children } from 'react'
+import React from 'react'
 import Home from './components/Home/Home'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Fruits from './components/Fruits/Fruits'
@@ -8,14 +8,15 @@ import AllProducts from './components/AllProducts/AllProducts'
 import Cart from './components/Cart/Cart'
 import Wishlist from './components/Wishlist/Wishlist'
 import Layout from './components/Layout/Layout'
-
+import { StoreProvider } from './context/StoreContext'  
 
 const App = () => {
   const router = createBrowserRouter([
     {
       path: '/',
       element: <Layout/>,
-    children: [
+    children: 
+    [
     {
       path: '/',
       element: <Home />,
@@ -42,13 +43,15 @@ const App = () => {
     },
     {
       path: '/cart',
-      element: <Cart/>,
+      element: <Cart />,
     },
   ]
 }
   ])
   return (
+    <StoreProvider> 
     <RouterProvider router={router}/>
+    </StoreProvider> 
   )
 }
 

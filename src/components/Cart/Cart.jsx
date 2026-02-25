@@ -1,24 +1,84 @@
 import React from 'react'
-import cart from '../../assets/banana.png'
+// import cart from '../../assets/banana.png'
+import cartEmpty from '../../assets/cartEmpty.png'
+import Button from '../Button/Button'
+import { useContext } from "react";
+import { StoreContext } from "../../context/StoreContext";
+import { MdOutlineDelete } from 'react-icons/md';
 
 const Cart = () => {
+  const { cart } = useContext(StoreContext);
+  const { removeFromCart } = useContext(StoreContext);
+  const { quantityIncrement } = useContext(StoreContext);
+  const { quantityDecrease } = useContext(StoreContext);
+  const { subTotal } = useContext(StoreContext);
+  const { shippingFee } = useContext(StoreContext);
+  const { orderTotal } = useContext(StoreContext);
+
   return (
-    <div className='max-w-[1400px] mt-40  mx-auto'>
-      <div className="flex justify-between m-5 text-2xl font-semibold text-zinc-800  ">
-        <p>Items</p>
-        <p>Title</p>
-        <p>Price</p>
-        <p>Quantity</p>
-        <p>Total</p>
-        <p>Remove</p>
-      </div>
-      <hr className="mb-4 border-zinc-500" />
+    <>
+      <section className='max-w-[1400px] mt-40 mx-auto'>
+        <div>
+          <div className="grid grid-cols-6 justify-items-center mb-5 text-lg md:text-2xl font-semibold text-zinc-700  ">
+            <p>Items</p>
+            <p>Title</p>
+            <p>Price</p>
+            <p>Quantity</p>
+            <p>Total</p>
+            <p>Remove</p>
+          </div>
+          <hr className=" items-center border-zinc-400" />
 
-      <div className="">
-        <img className='h-15' src={cart} alt="" />
-      </div>
+          {
+            cart.length === 0 ? <img className='mx-auto mt-10' src={cartEmpty} alt="" /> :
+              (
+                cart.map((product, index) => {
+                  return (
+                    <>
+                      <div key={product.id} className={`${index % 2 === 0 ? 'bg-gradient-to-b from-orange-300 to-orange-400' : 'bg-white '}
+                   grid grid-cols-6 place-items-center text-xl text-zinc-900 font-medium`}>
+                        <img className='h-17 m-1' src={product.image} alt="" />
+                        <p>{product.name}</p>
+                        <p>${product.price.toFixed(2)}</p>
+                        <div className="flex items-center border border-black rounded-lg overflow-hidden">
+                          <button onClick={() => quantityDecrease(product.id)} className="px-3 py-1 border-r cursor-pointer transition-all text-2xl font-extrabold border-black hover:bg-gray-100">-</button>
+                          <span className="px-4 py-1">{product.quantity}</span>
+                          <button onClick={() => quantityIncrement(product.id)} className="px-3 py-1 border-l cursor-pointer transition-all text-2xl font-bold border-black hover:bg-gray-100 ">+</button>
+                        </div>
+                          <p>${(product.price * product.quantity).toFixed(2)}</p>
+                        <p className='cursor-pointer text-3xl' onClick={() => removeFromCart(product.id)}><MdOutlineDelete /></p>
+                      </div>
+                      <hr className=" items-center border-zinc-400" />
+                    </>
+                  )
+                })
+              )
+          }
+        </div>
 
-    </div>
+        <div className=" mt-20 pl-10 w-1/2">
+          <h1 className='text-4xl text-zinc-900 font-bold'>Cart Totals</h1>
+          <div className="mt-10">
+            <div className="flex text-zinc-800 text-xl mt-4 font-medium  justify-between">
+              <p>Subtotal</p>
+              <p>{subTotal.toFixed(2)}</p>
+            </div>
+            <hr className="mt-3 items-center border-zinc-400" />
+            <div className="flex text-zinc-800 text-xl mt-4 font-medium justify-between">
+              <p>Shipping & Handling</p>
+              <p>{shippingFee.toFixed(2)}</p>
+            </div>
+            <hr className="mt-3 items-center border-zinc-400" />
+            <div className="flex mb-7 text-zinc-800 text-xl mt-4 font-medium justify-between">
+              <p>Total</p>
+              <p>{orderTotal.toFixed(2)}</p>
+            </div>
+            <Button disabled={cart.length === 0} content="PROCEED TO CHECKOUT" />
+
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
 
