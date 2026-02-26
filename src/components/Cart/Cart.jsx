@@ -1,5 +1,6 @@
 import React from 'react'
 // import cart from '../../assets/banana.png'
+import { motion, AnimatePresence } from "framer-motion";
 import cartEmpty from '../../assets/cartEmpty.png'
 import Button from '../Button/Button'
 import { useContext } from "react";
@@ -32,26 +33,56 @@ const Cart = () => {
           {
             cart.length === 0 ? <img className='mx-auto mt-10' src={cartEmpty} alt="" /> :
               (
-                cart.map((product, index) => {
-                  return (
-                    <>
-                      <div key={product.id} className={`${index % 2 === 0 ? 'bg-gradient-to-b from-orange-300 to-orange-400' : 'bg-white '}
-                   grid grid-cols-6 place-items-center text-xl text-zinc-900 font-medium`}>
-                        <img className='h-17 m-1' src={product.image} alt="" />
-                        <p>{product.name}</p>
-                        <p>${product.price.toFixed(2)}</p>
-                        <div className="flex items-center border border-black rounded-lg overflow-hidden">
-                          <button onClick={() => quantityDecrease(product.id)} className="px-3 py-1 border-r cursor-pointer transition-all text-2xl font-extrabold border-black hover:bg-gray-100">-</button>
-                          <span className="px-4 py-1">{product.quantity}</span>
-                          <button onClick={() => quantityIncrement(product.id)} className="px-3 py-1 border-l cursor-pointer transition-all text-2xl font-bold border-black hover:bg-gray-100 ">+</button>
-                        </div>
-                          <p>${(product.price * product.quantity).toFixed(2)}</p>
-                        <p className='cursor-pointer text-3xl' onClick={() => removeFromCart(product.id)}><MdOutlineDelete /></p>
+                <AnimatePresence>
+                  {cart.map((product, index) => (
+
+                    <motion.div
+                      key={product.id}
+                      layout
+                      initial={{ opacity: 0, x: 80 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -120 }}
+                      transition={{ duration: 0.4 }}
+                      className={`${index % 2 === 0
+                        ? 'bg-gradient-to-b from-orange-300 to-orange-300'
+                        : 'bg-white'}
+          grid grid-cols-6 place-items-center text-xl text-zinc-900 font-medium`}
+                    >
+
+                      <img className='h-17 m-1' src={product.image} alt="" />
+                      <p>{product.name}</p>
+                      <p>${product.price.toFixed(2)}</p>
+
+                      <div className="flex items-center border border-black rounded-lg overflow-hidden">
+                        <button
+                          onClick={() => quantityDecrease(product.id)}
+                          className="px-3 py-1 border-r cursor-pointer text-2xl font-extrabold border-black hover:bg-gray-100"
+                        >
+                          -
+                        </button>
+
+                        <span className="px-4 py-1">{product.quantity}</span>
+
+                        <button
+                          onClick={() => quantityIncrement(product.id)}
+                          className="px-3 py-1 border-l cursor-pointer text-2xl font-bold border-black hover:bg-gray-100"
+                        >
+                          +
+                        </button>
                       </div>
-                      <hr className=" items-center border-zinc-400" />
-                    </>
-                  )
-                })
+
+                      <p>${(product.price * product.quantity).toFixed(2)}</p>
+
+                      <p
+                        className='cursor-pointer text-3xl'
+                        onClick={() => removeFromCart(product.id)}
+                      >
+                        <MdOutlineDelete />
+                      </p>
+
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
               )
           }
         </div>

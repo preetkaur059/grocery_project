@@ -12,7 +12,7 @@ import { StoreContext } from "../../context/StoreContext";
 
 const Navbar = ({ handleScroll, setSearchItem, handlePanel }) => {
 
-    const { totalItems } = useContext(StoreContext);
+    const { totalItems, wishlist } = useContext(StoreContext);
     const { addToCart } = useContext(StoreContext);
 
     const [showMenu, setShowMenu] = useState(false);
@@ -55,8 +55,12 @@ const Navbar = ({ handleScroll, setSearchItem, handlePanel }) => {
                             <FaSearch />
                         </button>
                     </div>
-                    <Link to='/wishlist' className='text-zinc-800 text-3xl'>
+                    <Link to='/wishlist' className='text-zinc-800 relative text-3xl'>
                         <IoHeartSharp />
+                        {
+                            wishlist.length > 0 && (
+                            <span className='flex justify-center items-center text-lg bg-red-600 text-white w-5 h-5 p-3 rounded-full absolute left-4 top-4'>{wishlist.length}</span>)
+                        }
                     </Link>
                     <Link to='/cart' className='text-zinc-800 relative text-3xl'>
                         <RiShoppingBag4Fill />

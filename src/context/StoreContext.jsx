@@ -67,20 +67,32 @@ export const StoreProvider = ({ children }) => {
   }, 0);
 
   const totalItems = cart.reduce((acc,item) => acc+item.quantity,0);
+  const totalwishlist = wishlist.reduce((acc,item) => acc+item.quantity,0);
   const shippingFee = totalItems * 2;
   const orderTotal = subTotal +  shippingFee;
 
+  // add to wishlist 
     const addToWishlist = (product) => {
-      setWishlist(prev => [...prev, product]);
-    };
+  setWishlist(prev => {
+    const alreadyAdded = prev.find(item => item.id === product.id);
+
+    if (alreadyAdded) {
+      // remove if already exists (toggle)
+      return prev.filter(item => item.id !== product.id);
+    } else {
+      // add if not exists
+      return [...prev, product];
+    }
+  });
+};
 
   const removeFromCart = (id) => {
     setCart(prev => prev.filter(item => item.id !== id));
   };
 
-  //   const removeFromWishlist = (id) => {
-  //     setWishlist(prev => prev.filter(item => item.id !== id));
-  //   };
+    const removeFromWishlist = (id) => {
+      setWishlist(prev => prev.filter(item => item.id !== id));
+    };
 
   return (
     <StoreContext.Provider value={{
@@ -95,7 +107,8 @@ export const StoreProvider = ({ children }) => {
       totalItems,
       shippingFee,
       orderTotal,
-      // removeFromWishlist
+      removeFromWishlist,
+      totalwishlist
     }}>
       {children}
     </StoreContext.Provider>

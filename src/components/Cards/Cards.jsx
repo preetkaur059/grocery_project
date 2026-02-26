@@ -9,11 +9,13 @@ import { StoreContext } from "../../context/StoreContext";
 const Cards = ({product, addToCart}) => {
     
     const { addToWishlist } = useContext(StoreContext);
+    const { wishlist } = useContext(StoreContext);
+    console.log("Wishlist:", wishlist);
       return (
     <div className='bg-zinc-200  p-5 rounded-xl'>
     <div className="flex justify-between">
-        <span className='text-3xl text-zinc-400 cursor-pointer'> <FaHeart/> </span>
-        <button onClick={() => addToWishlist(product)} className='cursor-pointer bg-gradient-to-b from-orange-400 to-orange-600 text-white text-xl px-4 py-3 rounded-xl'>
+        <span onClick={() => addToWishlist(product)} className={`text-3xl cursor-pointer ${wishlist.some(item => item.id === product.id) ? 'text-red-600' : 'text-zinc-400'}`}> <FaHeart/> </span>
+        <button className='cursor-pointer bg-gradient-to-b from-orange-400 to-orange-600 text-white text-xl px-4 py-3 rounded-xl'>
             <FaPlus/>
         </button>
     </div>
@@ -26,8 +28,8 @@ const Cards = ({product, addToCart}) => {
         {/* card content  */}
 
         <div className="text-center ">
-            <h3 className='text-xl font-semibold'>{product.name}</h3>
-            <p className={`text-2xl font-bold mb-3 my-2 `}>${product.price.toFixed(2)}</p>
+            <h3 className='text-xl text-orange-500  font-semibold'>{product.name}</h3>
+            <p className={`text-2xl text-zinc-900  font-bold mb-3 my-2 `}>${product.price.toFixed(2)}</p>
             <button 
             onClick={() => addToCart(product)}
              className='inline-block mt-2 mb-2 bg-gradient-to-b from-orange-400 to-orange-500 text-white px-8 py-3 rounded-lg md:text-lg text-md hover:scale-105 hover:from-to-orange-600 transition-all duration-300 cursor-pointer'>Add To Cart</button>
