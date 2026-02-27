@@ -96,6 +96,7 @@ const products = [
         category: 'Dairy',
         image: Yogurt
     },
+    
     {
         id: 11,
         name: 'Beef',

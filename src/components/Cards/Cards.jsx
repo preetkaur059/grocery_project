@@ -6,16 +6,17 @@ import { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
 
 
-const Cards = ({product, addToCart}) => {
+const Cards = ({product}) => {
     
-    const { addToWishlist } = useContext(StoreContext);
-    const { wishlist } = useContext(StoreContext);
-    console.log("Wishlist:", wishlist);
+    const { wishlist, addToWishlist, addToCart } = useContext(StoreContext);
+    
+    // console.log("Wishlist:", wishlist);
       return (
     <div className='bg-zinc-200  p-5 rounded-xl'>
     <div className="flex justify-between">
         <span onClick={() => addToWishlist(product)} className={`text-3xl cursor-pointer ${wishlist.some(item => item.id === product.id) ? 'text-red-600' : 'text-zinc-400'}`}> <FaHeart/> </span>
-        <button className='cursor-pointer bg-gradient-to-b from-orange-400 to-orange-600 text-white text-xl px-4 py-3 rounded-xl'>
+        <button onClick={() => addToCart(product)}
+         className='cursor-pointer bg-gradient-to-b from-orange-400 to-orange-600 text-white text-xl px-4 py-3 rounded-xl'>
             <FaPlus/>
         </button>
     </div>

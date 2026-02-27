@@ -10,10 +10,20 @@ import { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
 
 
-const Navbar = ({ handleScroll, setSearchItem, handlePanel }) => {
+const Navbar = () => {
 
-    const { totalItems, wishlist } = useContext(StoreContext);
+    const { totalItems, wishlist, setSearchItem } = useContext(StoreContext);
     const { addToCart } = useContext(StoreContext);
+
+    // scrollbar with shadow 
+
+    const handleScroll = () => {
+    const section = document.getElementById('product-section');
+
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
     const [showMenu, setShowMenu] = useState(false);
 

@@ -7,11 +7,11 @@ import noproductfound from '../../assets/no-product-found.webp'
 import { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
 
-const Product = ({ searchItem }) => {
+const Product = () => {
     const categories = ['All', 'Fruits', 'Vegetables', 'Dairy', 'SeaFood']
     const [activeTab, setActiveTab] = useState('All');
 
-    const { addToCart } = useContext(StoreContext);
+    const { addToCart, searchItem } = useContext(StoreContext);
 
     let filteredItems = activeTab === 'All' ? ProductList : ProductList.filter(item => item.category === activeTab);
 

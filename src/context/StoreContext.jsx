@@ -1,24 +1,29 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const StoreContext = createContext();
 
 export const StoreProvider = ({ children }) => {
 
-  const [cart, setCart] = useState([]);
-  const [wishlist, setWishlist] = useState([]);
+  const [cart, setCart] = useState(()=>{
+    const storeCart = localStorage.getItem('cart')
+    return storeCart ? JSON.parse(storeCart) : []
+  });
+  const [wishlist, setWishlist] = useState(()=>{
+    const storeWishlist = localStorage.getItem('wishlist')
+    return storeWishlist ? JSON.parse(storeWishlist) : []
+  });
+ 
+  // search items 
+const [searchItem, setSearchItem] = useState('');
 
-  // const addToCart = (product) => {
-  //   const alreadyAdded = cart.find(item => item.id === product.id);
-  //   if(alreadyAdded)
-  //     {
-  //       alert('Item is already in the cart')
-  //       return;
-  //     }
-  //     setCart([...cart, product]);
-  // };
+  // save items to localStorage
+  useEffect(()=>{
+    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+  },[cart,wishlist])
 
 
-
+// add to cart 
   const addToCart = (product) => {
 
     setCart(prevCart => {
@@ -67,7 +72,6 @@ export const StoreProvider = ({ children }) => {
   }, 0);
 
   const totalItems = cart.reduce((acc,item) => acc+item.quantity,0);
-  const totalwishlist = wishlist.reduce((acc,item) => acc+item.quantity,0);
   const shippingFee = totalItems * 2;
   const orderTotal = subTotal +  shippingFee;
 
@@ -94,6 +98,9 @@ export const StoreProvider = ({ children }) => {
       setWishlist(prev => prev.filter(item => item.id !== id));
     };
 
+
+    // scroll bar with shadow
+
   return (
     <StoreContext.Provider value={{
       cart,
@@ -108,7 +115,8 @@ export const StoreProvider = ({ children }) => {
       shippingFee,
       orderTotal,
       removeFromWishlist,
-      totalwishlist
+      searchItem,
+      setSearchItem
     }}>
       {children}
     </StoreContext.Provider>
