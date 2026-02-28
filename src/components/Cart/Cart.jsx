@@ -6,16 +6,11 @@ import Button from '../Button/Button'
 import { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
 import { MdOutlineDelete } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  const { cart } = useContext(StoreContext);
-  const { removeFromCart } = useContext(StoreContext);
-  const { quantityIncrement } = useContext(StoreContext);
-  const { quantityDecrease } = useContext(StoreContext);
-  const { subTotal } = useContext(StoreContext);
-  const { shippingFee } = useContext(StoreContext);
-  const { orderTotal } = useContext(StoreContext);
-
+  const { cart, removeFromCart, quantityIncrement, quantityDecrease, subTotal, shippingFee, orderTotal} = useContext(StoreContext);
+  
   return (
     <>
       <section className='max-w-[1400px] mt-40 mx-auto'>
@@ -87,10 +82,12 @@ const Cart = () => {
           }
         </div>
 
-        <div className=" mt-20 pl-10 w-1/2">
-          <h1 className='text-4xl text-zinc-900 font-bold'>Cart Totals</h1>
-          <div className="mt-10">
-            <div className="flex text-zinc-800 text-xl mt-4 font-medium  justify-between">
+        
+          <div className="flex gap-20 mt-20 pl-10">
+          
+          <div className="w-1/2">
+            <h1 className='text-4xl mb-10 text-zinc-900 font-bold'>Cart Totals</h1> 
+            <div className="flex  text-zinc-800 text-xl mt-4 font-medium  justify-between">
               <p>Subtotal</p>
               <p>{subTotal.toFixed(2)}</p>
             </div>
@@ -104,10 +101,20 @@ const Cart = () => {
               <p>Total</p>
               <p>{orderTotal.toFixed(2)}</p>
             </div>
-            <Button disabled={cart.length === 0} content="PROCEED TO CHECKOUT" />
+            <Link to='/DeliveryInformation' 
+            className='bg-gradient-to-b from-orange-400 to-orange-500 text-white px-8 py-3 rounded-lg md:text-lg text-md hover:scale-105 hover:from-orange-500 hover:to-orange-600 transition-all duration-300 inline-block cursor-pointer'
+            disabled={cart.length === 0} >PROCEED TO CHECKOUT</Link>
 
           </div>
+          <div className="flex w-1/2 mt-5 px-3 flex-col">
+            <p className='text-lg text-zinc-800'>If you have a promo code, Enter it here</p>
+            <div className="mt-2">
+              <input type="text" className='w-2/3 focus:outline-none rounded-lg bg-zinc-200 px-3 py-3 md:text-lg text-md' placeholder='promo code'/>
+            <Button content = 'Submit'/>
+            </div>
+          </div>
         </div>
+        
       </section>
     </>
   )

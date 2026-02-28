@@ -12,18 +12,16 @@ import { StoreContext } from "../../context/StoreContext";
 
 const Navbar = () => {
 
-    const { totalItems, wishlist, setSearchItem } = useContext(StoreContext);
-    const { addToCart } = useContext(StoreContext);
+    const { totalItems, wishlist, setSearchItem, cartCount } = useContext(StoreContext);
 
     // scrollbar with shadow 
-
     const handleScroll = () => {
-    const section = document.getElementById('product-section');
+        const section = document.getElementById('product-section');
 
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
     }
-  }
 
     const [showMenu, setShowMenu] = useState(false);
 
@@ -65,20 +63,26 @@ const Navbar = () => {
                             <FaSearch />
                         </button>
                     </div>
+
+                    {/* wishlist */}
                     <Link to='/wishlist' className='text-zinc-800 relative text-3xl'>
                         <IoHeartSharp />
                         {
                             wishlist.length > 0 && (
-                            <span className='flex justify-center items-center text-lg bg-red-600 text-white w-5 h-5 p-3 rounded-full absolute left-4 top-4'>{wishlist.length}</span>)
+                                <span className='flex justify-center items-center text-lg bg-red-600 text-white w-5 h-5 p-3 rounded-full absolute left-4 top-4'>{wishlist.length}</span>)
                         }
                     </Link>
+
+                    {/* cart */}
                     <Link to='/cart' className='text-zinc-800 relative text-3xl'>
                         <RiShoppingBag4Fill />
                         {
-                            totalItems > 0 &&
-                            <span className='flex justify-center items-center text-lg bg-red-600 text-white w-5 h-5 p-3 rounded-full absolute left-4 top-4'>{totalItems}</span>
+                            cartCount  > 0 &&
+                            <span className='flex justify-center items-center text-lg bg-red-600 text-white w-5 h-5 p-3 rounded-full absolute left-4 top-4'>{cartCount }</span>
                         }
                     </Link>
+
+                    {/* user */}
                     <button className='text-zinc-800 text-2xl'>
                         <FaUserAlt />
                     </button>
