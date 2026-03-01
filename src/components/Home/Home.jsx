@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import Hero from '../Hero/Hero'
 import Category from '../Category/Category'
@@ -13,14 +13,21 @@ import products from '../ProductList/ProductList'
 
 // scroll bar 
 const Home = () => {
+  useEffect(() => {
+    if (window.location.hash) {
+      const id = window.location.hash.replace("#", "");
+      const element = document.getElementById(id);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <Hero />
       <Category />
       <Values />
-      <Product/>
+      <Product />
       <Discount />
       <Process />
       <Testimonials />
