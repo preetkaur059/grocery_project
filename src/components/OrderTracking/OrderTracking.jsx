@@ -14,7 +14,7 @@ const OrderTracking = () => {
   };
 
   return (
-    <div className='max-w-[1400px] mt-30 mx-auto'>
+    <div className='max-w-[1400px] md:px-0 px-5 mt-30 mx-auto'>
       <div className=" px-5">
         <h1 className='text-3xl font-bold text-zinc-900 pt-4'>Track Your Order</h1>
       </div>

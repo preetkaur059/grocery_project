@@ -8,6 +8,7 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
+import { NavLink } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -45,10 +46,23 @@ const Navbar = () => {
                     <Link to="/" className='text-3xl font-bold'>Gr<span className='text-orange-500'>O</span>cify</Link>
                 </div>
                 <div className="md:flex hidden gap-8 text-xl">
-                    <Link to="/" className='font-semibold tracking-wider text-orange-500'>Home</Link>
-                    <a href="About Us" className='font-semibold tracking-wider text-zinc-800 hover:text-orange-500'>About Us</a>
-                    <a href="Process" className='font-semibold tracking-wider text-zinc-800 hover:text-orange-500'>Process</a>
-                    <a href="Contact Us" className='font-semibold tracking-wider text-zinc-800  hover:text-orange-500'>Contact Us</a>
+
+                    <NavLink to="/" className={({ isActive }) => `font-semibold tracking-wider ${isActive ? "text-orange-500" : "text-zinc-800 hover:text-orange-500" }`} >
+                        Home
+                    </NavLink>
+
+                    <NavLink to="/AboutUs" className={({ isActive }) => `font-semibold tracking-wider ${isActive ? "text-orange-500" : "text-zinc-800 hover:text-orange-500" }`} >
+                        About Us
+                    </NavLink>
+
+                    <NavLink to="/ProcessPage" className={({ isActive }) => `font-semibold tracking-wider ${isActive ? "text-orange-500" : "text-zinc-800 hover:text-orange-500" }`} >
+                        Process
+                    </NavLink>
+
+                    <NavLink to="/Contact" className={({ isActive }) => `font-semibold tracking-wider ${isActive ? "text-orange-500" : "text-zinc-800 hover:text-orange-500" }`} >
+                        Contact Us
+                    </NavLink>
+
                 </div>
                 {/* nav action  */}
                 <div className="flex items-center gap-x-5">
@@ -77,15 +91,15 @@ const Navbar = () => {
                     <Link to='/cart' className='text-zinc-800 relative text-3xl'>
                         <RiShoppingBag4Fill />
                         {
-                            cartCount  > 0 &&
-                            <span className='flex justify-center items-center text-lg bg-red-600 text-white w-5 h-5 p-3 rounded-full absolute left-4 top-4'>{cartCount }</span>
+                            cartCount > 0 &&
+                            <span className='flex justify-center items-center text-lg bg-red-600 text-white w-5 h-5 p-3 rounded-full absolute left-4 top-4'>{cartCount}</span>
                         }
                     </Link>
 
                     {/* user */}
-                    <button className='text-zinc-800 text-2xl'>
+                    {/* <button className='text-zinc-800 text-2xl'>
                         <FaUserAlt />
-                    </button>
+                    </button> */}
                     <button onClick={toggleMenu} className={`text-zinc-800 text-2xl md:hidden ${showMenu ? '<BiMenuAltRight />' : '<GiHamburgerMenu />'}`}>
                         <GiHamburgerMenu />
                     </button>

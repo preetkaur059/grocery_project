@@ -13,6 +13,9 @@ import { StoreProvider } from './context/StoreContext'
 import DeliveryInformation from './components/DeliveryInformation/DeliveryInformation'
 import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation'
 import OrderTracking from './components/OrderTracking/OrderTracking'
+import AboutUs from './components/AboutUs/AboutUs'
+import Contact from './components/Contact/Contact'
+import ProcessPage from './components/ProcessPage/ProcessPage'
 
 const App = () => {
   const router = createBrowserRouter([
@@ -60,6 +63,18 @@ const App = () => {
     {
       path: '/OrderTracking',
       element: <OrderTracking />,
+    },
+    {
+      path: '/AboutUs',
+      element: <AboutUs />,
+    },
+    {
+      path: '/ProcessPage',
+      element: <ProcessPage />,
+    },
+    {
+      path: '/Contact',
+      element: <Contact />,
     },
   ]
 }

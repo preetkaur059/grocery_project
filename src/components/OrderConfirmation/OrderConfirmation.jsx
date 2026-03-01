@@ -24,7 +24,7 @@ const OrderConfirmation = () => {
 
 
   return (
-    <div className='max-w-[1400px] mt-30 mx-auto'>
+    <div className='max-w-[1400px] md:px-0 px-5 mt-30 mx-auto'>
       <div className=" px-5">
         <h1 className='text-3xl font-bold text-zinc-900 pt-4'>Thank You for your order!</h1>
         <p className='text-zinc-800 text-lg py-3'>Your order has been placed successfully. You will receive an email confirmation shortly. </p>

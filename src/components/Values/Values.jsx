@@ -68,25 +68,25 @@ const value = [
     {
         id : 1,
         title : 'Trust', 
-        para : 'It is a long established fact that a reader will be distracted by the readable.',
+        para : 'We deliver quality products with honesty and complete transparency.',
         icon : <FaHeart/>
     },
     {
         id : 2,
         title : 'Always Fresh', 
-        para : 'It is a long established fact that a reader will be distracted by the readable.',
+        para : 'Fresh products sourced daily for better taste and quality.',
         icon : <FaLeaf/>
     },
     {
         id : 3,
         title : 'Food Safety', 
-        para : 'It is a long established fact that a reader will be distracted by the readable.',
+        para : ' We maintain strict hygiene and ensure safe, healthy groceries.',
         icon : <FaShieldAlt/>
     },
     {
         id : 4,
         title : '100% Organic', 
-        para : 'It is a long established fact that a reader will be distracted by the readable.',
+        para : 'Pure organic items grown without harmful chemicals.',
         icon : <FaSeedling/>    
     },
 ]
