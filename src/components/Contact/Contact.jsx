@@ -32,7 +32,7 @@ const Contact = () => {
 
         <div className="bg-white shadow-md rounded-xl p-8 text-center hover:shadow-xl transition duration-300">
           <h3 className="text-2xl font-semibold text-gray-800 mb-3">✉ Email</h3>
-          <p className="text-gray-600 text-lg">support@classiccave.com</p>
+          <p className="text-gray-600 text-lg">support@grocify.com</p>
         </div>
 
       </div>

@@ -125,7 +125,7 @@ const Process = () => {
           <h2 className="text-4xl font-bold text-zinc-900 mb-6">
             Ready to Experience Fresh Groceries?
           </h2>
-          <Button  onClick={handleClick} content="Start Shopping Now"/>
+          <Button onClick={() => navigate("/allproducts")} content="Start Shopping Now"/>
         </div>
       </div>
     </section>

@@ -6,7 +6,7 @@ import bgFruits from '../../assets/all-banner.jpg'
 const AllProducts = () => {
   return (
     <div>
-       <CategoryPage title = 'Fruits & Veggies' bgImage = {bgFruits} categories={['All']}/>
+       <CategoryPage title = 'All Products' bgImage = {bgFruits} categories={['All']}/>
     </div>
   )
 }
