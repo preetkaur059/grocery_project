@@ -12,7 +12,8 @@ const Cards = ({product}) => {
     
     // console.log("Wishlist:", wishlist);
       return (
-    <div className='bg-zinc-200  p-5 rounded-xl'>
+    <div className='bg-zinc-200  p-5 rounded-xl transform transition duration-700 ease-in-out 
+             hover:scale-105 hover:shadow-xl'>
     <div className="flex justify-between">
         <span onClick={() => addToWishlist(product)} className={`text-3xl cursor-pointer ${wishlist.some(item => item.id === product.id) ? 'text-red-600' : 'text-zinc-400'}`}> <FaHeart/> </span>
         <button onClick={() => addToCart(product)}

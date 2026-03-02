@@ -40,7 +40,7 @@ const Values = () => {
 
   return (
     <section>
-        <div className=" max-w-[1400px] mx-auto px-10 md:py-15 py-10">
+        <div data-aos="fade-up" className=" max-w-[1400px] mx-auto px-10 md:py-15 py-10">
             <Heading highlight = "Our" heading = "Values" />
 
             {/* left values  */}
@@ -49,7 +49,8 @@ const Values = () => {
                 {leftValues}</div>
             
             {/* center image */}
-            <div className="w-1/2  md:flex hidden ">
+            <div className="w-1/2  md:flex hidden transform transition duration-700 ease-in-out 
+             hover:scale-105">
             <img src={basket} alt="fruits" />
             </div>
 

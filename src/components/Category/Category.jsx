@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 const Category = () => {
     const renderCards = category.map(card => {
         return (
-            <div className= 'flex-1  basis-[300px]' key={card.id}>
+            <div className= 'flex-1 basis-[300px] transform transition duration-700 ease-in-out hover:scale-105 ' key={card.id}>
             <div className="w-full min-h-[30vh]  relative -mb-10">
             <img src={card.image} className='absolute bottom-0' alt="" />
             </div>
@@ -24,7 +24,7 @@ const Category = () => {
     })
     return (
         <section>
-            <div className="max-w-[1400px] mx-auto px-10 py-20">
+            <div data-aos="fade-up" className="max-w-[1400px] mx-auto px-10 py-20">
             <Heading highlight="Shop" heading="by category" />
 
             <div className="flex flex-wrap md:mt-15 gap-10 ">

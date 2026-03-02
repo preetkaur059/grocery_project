@@ -66,7 +66,10 @@ const DeliveryInformation = () => {
               value={deliveryInfo.firstName}
               onChange={handleChange}
               placeholder='First Name'
-              className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full focus:outline-none focus:ring-1 focus:ring-orange-400'
+              className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full 
+              transform transition duration-300 ease-in-out
+              hover:scale-105 focus:scale-105 
+              focus:outline-none focus:ring-1 focus:ring-orange-400'
             />
 
             <input
@@ -75,7 +78,10 @@ const DeliveryInformation = () => {
               value={deliveryInfo.lastName}
               onChange={handleChange}
               placeholder='Last Name'
-              className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full focus:outline-none focus:ring-1 focus:ring-orange-400'
+              className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full 
+              transform transition duration-300 ease-in-out
+             hover:scale-105 focus:scale-105 
+              focus:outline-none focus:ring-1 focus:ring-orange-400'
             />
           </div>
 
@@ -86,7 +92,10 @@ const DeliveryInformation = () => {
             value={deliveryInfo.email}
             onChange={handleChange}
             placeholder='Email Address'
-            className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full my-3 focus:outline-none focus:ring-1 focus:ring-orange-400'
+            className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full my-3 
+            transform transition duration-300 ease-in-out
+             hover:scale-105 focus:scale-105 
+            focus:outline-none focus:ring-1 focus:ring-orange-400'
           />
 
           {/* Street */}
@@ -96,7 +105,10 @@ const DeliveryInformation = () => {
             value={deliveryInfo.street}
             onChange={handleChange}
             placeholder='Street Address'
-            className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full my-3 focus:outline-none focus:ring-1 focus:ring-orange-400'
+            className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full my-3 
+            transform transition duration-300 ease-in-out
+             hover:scale-105 focus:scale-105 
+            focus:outline-none focus:ring-1 focus:ring-orange-400'
           />
 
           {/* City & State */}
@@ -107,7 +119,10 @@ const DeliveryInformation = () => {
               value={deliveryInfo.city}
               onChange={handleChange}
               placeholder='City'
-              className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full focus:outline-none focus:ring-1 focus:ring-orange-400'
+              className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full 
+              transform transition duration-300 ease-in-out
+             hover:scale-105 focus:scale-105 
+              focus:outline-none focus:ring-1 focus:ring-orange-400'
             />
 
             <input
@@ -116,7 +131,10 @@ const DeliveryInformation = () => {
               value={deliveryInfo.state}
               onChange={handleChange}
               placeholder='State'
-              className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full focus:outline-none focus:ring-1 focus:ring-orange-400'
+              className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full 
+              transform transition duration-300 ease-in-out
+             hover:scale-105 focus:scale-105 
+              focus:outline-none focus:ring-1 focus:ring-orange-400'
             />
           </div>
 
@@ -128,7 +146,10 @@ const DeliveryInformation = () => {
               value={deliveryInfo.pinCode}
               onChange={handleChange}
               placeholder='Pin Code'
-              className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full focus:outline-none focus:ring-1 focus:ring-orange-400'
+              className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full 
+              transform transition duration-300 ease-in-out
+             hover:scale-105 focus:scale-105 
+              focus:outline-none focus:ring-1 focus:ring-orange-400'
             />
 
             <input
@@ -137,7 +158,10 @@ const DeliveryInformation = () => {
               value={deliveryInfo.country}
               onChange={handleChange}
               placeholder='Country'
-              className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full focus:outline-none focus:ring-1 focus:ring-orange-400'
+              className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full 
+              transform transition duration-300 ease-in-out
+             hover:scale-105 focus:scale-105 
+              focus:outline-none focus:ring-1 focus:ring-orange-400'
             />
           </div>
 
@@ -148,7 +172,10 @@ const DeliveryInformation = () => {
             value={deliveryInfo.phone}
             onChange={handleChange}
             placeholder='Phone'
-            className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full my-3 focus:outline-none focus:ring-1 focus:ring-orange-400'
+            className='border-2 rounded-lg border-zinc-400 px-3 py-2 w-full my-3 
+            transform transition duration-300 ease-in-out
+             hover:scale-105 focus:scale-105 
+            focus:outline-none focus:ring-1 focus:ring-orange-400'
           />
 
         </div>

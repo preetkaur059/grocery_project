@@ -36,7 +36,7 @@ const Wishlist = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -100 }}
                   transition={{ duration: 0.4 }}
-                  className="bg-zinc-100 p-5 rounded-xl shadow-md hover:shadow-lg transition duration-300"
+                  className="bg-zinc-100 p-5 rounded-xl shadow-md hover:scale-105 hover:shadow-lg transition duration-500"
                 >
                   {/* Image */}
                   <div className="w-full h-48 flex justify-center items-center">
