@@ -6,7 +6,7 @@ import process from '../../assets/process.jpg'
 import { useNavigate } from "react-router-dom";
 
 
-const Process = () => {
+const ProcessPage = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -35,7 +35,7 @@ const Process = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Step 1 */}
-          <div className="bg-white border border-zinc-300 p-8 rounded-xl text-center hover:shadow-xl transition duration-300">
+          <div className="bg-white border border-zinc-300 p-8 rounded-xl text-center hover:shadow-xl transition duration-300 hover:scale-102">
             <FaShoppingBasket className="text-orange-500 text-5xl mx-auto mb-5" />
             <h2 className="text-2xl font-semibold mb-3 text-zinc-900">
               1. Select Products
@@ -46,7 +46,7 @@ const Process = () => {
           </div>
 
           {/* Step 2 */}
-          <div className="bg-white border border-zinc-300 p-8 rounded-xl text-center hover:shadow-xl transition duration-300">
+          <div className="bg-white border border-zinc-300 p-8 rounded-xl text-center hover:shadow-xl transition duration-300 hover:scale-102">
             <FaClipboardCheck className="text-orange-500 text-5xl mx-auto mb-5" />
             <h2 className="text-2xl font-semibold mb-3 text-zinc-900">
               2. Secure Checkout
@@ -57,7 +57,7 @@ const Process = () => {
           </div>
 
           {/* Step 3 */}
-          <div className="bg-white border border-zinc-300 p-8 rounded-xl text-center hover:shadow-xl transition duration-300">
+          <div className="bg-white border border-zinc-300 p-8 rounded-xl text-center hover:shadow-xl transition duration-300 hover:scale-102">
             <FaTruckMoving className="text-orange-500 text-5xl mx-auto mb-5" />
             <h2 className="text-2xl font-semibold mb-3 text-zinc-900">
               3. Fast Delivery
@@ -68,7 +68,7 @@ const Process = () => {
           </div>
 
           {/* Step 4 */}
-          <div className="bg-white border border-zinc-300 p-8 rounded-xl text-center hover:shadow-xl transition duration-300">
+          <div className="bg-white border border-zinc-300 p-8 rounded-xl text-center hover:shadow-xl transition duration-300 hover:scale-102">
             <FaSmile className="text-orange-500 text-5xl mx-auto mb-5" />
             <h2 className="text-2xl font-semibold mb-3 text-zinc-900">
               4. Enjoy Freshness
@@ -132,4 +132,4 @@ const Process = () => {
   );
 };
 
-export default Process;
+export default ProcessPage;

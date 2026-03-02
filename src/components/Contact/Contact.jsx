@@ -18,19 +18,19 @@ const Contact = () => {
       {/* Contact Info Cards */}
       <div className="max-w-[1200px] mx-auto px-6 py-16 grid md:grid-cols-3 gap-8">
 
-        <div className="bg-white shadow-md rounded-xl p-8 text-center hover:shadow-xl transition duration-300">
+        <div className="bg-white shadow-md rounded-xl p-8 text-center hover:shadow-xl transition duration-500 hover:scale-102">
           <h3 className="text-2xl font-semibold text-gray-800 mb-3">📍 Address</h3>
           <p className="text-gray-600 text-lg">
             123 Fresh Market Street, Ludhiana, Punjab
           </p>
         </div>
 
-        <div className="bg-white shadow-md rounded-xl p-8 text-center hover:shadow-xl transition duration-300">
+        <div className="bg-white shadow-md rounded-xl p-8 text-center hover:shadow-xl transition duration-500 hover:scale-102">
           <h3 className="text-2xl font-semibold text-gray-800 mb-3">📞 Phone</h3>
           <p className="text-gray-600 text-lg">+91 98765 43210</p>
         </div>
 
-        <div className="bg-white shadow-md rounded-xl p-8 text-center hover:shadow-xl transition duration-300">
+        <div className="bg-white shadow-md rounded-xl p-8 text-center hover:shadow-xl transition duration-500 hover:scale-102">
           <h3 className="text-2xl font-semibold text-gray-800 mb-3">✉ Email</h3>
           <p className="text-gray-600 text-lg">support@grocify.com</p>
         </div>
@@ -52,7 +52,7 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder="Enter your name"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full border border-gray-300 rounded-lg hover:scale-102 transform transition duration-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
@@ -61,7 +61,7 @@ const Contact = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full border border-gray-300 rounded-lg hover:scale-102 transform transition duration-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
@@ -70,13 +70,13 @@ const Contact = () => {
               <textarea
                 rows="5"
                 placeholder="Write your message..."
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full border border-gray-300 rounded-lg hover:scale-102 transform transition duration-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500"
               ></textarea>
             </div>
 
             <button
               type="submit"
-              className="w-full text-xl bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold transition duration-300"
+              className="w-full text-xl hover:scale-102 bg-orange-500 hover:from-orange-500 hover:to-orange-600 text-white py-3 rounded-lg font-semibold transition duration-500 cursor-pointer"
             >
               Send Message
             </button>

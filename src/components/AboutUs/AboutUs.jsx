@@ -81,7 +81,7 @@ const AboutUs = () => {
 
         <div className="grid md:grid-cols-4 gap-8 text-center">
 
-          <div className="p-6 shadow-lg rounded-xl hover:shadow-2xl transition">
+          <div className="p-6 shadow-lg rounded-xl transform transition duration-500 hover:scale-102 hover:shadow-2xl transition">
             <FaLeaf className="text-orange-500 text-5xl mx-auto mb-4" />
             <h3 className="font-semibold text-2xl">100% Organic</h3>
             <p className="text-gray-500 mt-2">
@@ -89,7 +89,7 @@ const AboutUs = () => {
             </p>
           </div>
 
-          <div className="p-6 shadow-lg rounded-xl hover:shadow-2xl transition">
+          <div className="p-6 shadow-lg rounded-xl hover:shadow-2xl transform transition duration-500 hover:scale-102">
             <FaTruck className="text-orange-500 text-5xl mx-auto mb-4" />
             <h3 className="font-semibold text-2xl">Fast Delivery</h3>
             <p className="text-gray-500 mt-2">
@@ -97,7 +97,7 @@ const AboutUs = () => {
             </p>
           </div>
 
-          <div className="p-6 shadow-lg rounded-xl hover:shadow-2xl transition">
+          <div className="p-6 shadow-lg rounded-xl hover:shadow-2xl transform transition duration-500 hover:scale-102">
             <FaUsers className="text-orange-500 text-5xl mx-auto mb-4" />
             <h3 className="font-semibold text-2xl">Trusted By Customers</h3>
             <p className="text-gray-500 mt-2">
@@ -105,7 +105,7 @@ const AboutUs = () => {
             </p>
           </div>
 
-          <div className="p-6 shadow-lg rounded-xl hover:shadow-2xl transition">
+          <div className="p-6 shadow-lg rounded-xl hover:shadow-2xl transform transition duration-500 hover:scale-102">
             <FaAward className="text-orange-500 text-5xl mx-auto mb-4" />
             <h3 className="font-semibold text-2xl">Best Quality</h3>
             <p className="text-gray-500 mt-2">
