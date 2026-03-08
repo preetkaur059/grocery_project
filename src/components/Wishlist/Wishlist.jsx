@@ -10,10 +10,13 @@ const Wishlist = () => {
 
   return (
     <div className="max-w-[1400px] mt-28 mx-auto px-5">
+      <h1 className='text-4xl text-center font-bold mb-7 text-zinc-900'>
+        Your Wishlist
+      </h1>
 
-      <div className="mb-5">
+      {/* <div className="mb-5">
         <Heading highlight ='Your' heading ='Wishlist' />
-      </div>
+      </div> */}
 
       {
         wishlist.length === 0 ? (

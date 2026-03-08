@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { IoHeartSharp } from "react-icons/io5";
-import { FaSearch } from "react-icons/fa";
+import { FaBars, FaSearch, FaTimes } from "react-icons/fa";
 import { RiShoppingBag4Fill } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaUserAlt } from "react-icons/fa";
@@ -26,9 +26,13 @@ const Navbar = () => {
 
     const [showMenu, setShowMenu] = useState(false);
 
-    const toggleMenu = () => {
-        setShowMenu(!showMenu);
+    useEffect(() => {
+    if (showMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
     }
+  }, [showMenu]);
 
     const [isScrolled, setIsScrolled] = useState(false);
     useEffect(() => {
@@ -100,8 +104,8 @@ const Navbar = () => {
                     {/* <button className='text-zinc-800 text-2xl'>
                         <FaUserAlt />
                     </button> */}
-                    <button onClick={toggleMenu} className={`text-zinc-800 text-2xl md:hidden ${showMenu ? '<BiMenuAltRight />' : '<GiHamburgerMenu />'}`}>
-                        <GiHamburgerMenu />
+                    <button  onClick={() => setShowMenu(!showMenu)} className={`text-zinc-800 cursor-pointer text-2xl md:hidden ${showMenu ? '<BiMenuAltRight />' : '<GiHamburgerMenu />'}`}>
+                       {showMenu ? <FaTimes /> : <FaBars />}
                     </button>
                 </div>
 
