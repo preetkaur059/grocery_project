@@ -2,13 +2,18 @@ import React, { useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import emptywishlist from "../../assets/emptywishlist.jpg";
 import { StoreContext } from "../../context/StoreContext";
+import Heading from "../Heading/Heading";
 
 const Wishlist = () => {
 
   const { wishlist, addToCart, removeFromWishlist } = useContext(StoreContext);
 
   return (
-    <div className="max-w-[1400px] mt-40 mx-auto px-5">
+    <div className="max-w-[1400px] mt-28 mx-auto px-5">
+
+      <div className="mb-5">
+        <Heading highlight ='Your' heading ='Wishlist' />
+      </div>
 
       {
         wishlist.length === 0 ? (

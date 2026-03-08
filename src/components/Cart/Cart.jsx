@@ -8,148 +8,168 @@ import { MdOutlineDelete } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
+
   const { cart, removeFromCart, quantityIncrement, quantityDecrease, subTotal, shippingFee, orderTotal } = useContext(StoreContext);
 
   return (
-    <>
-      <section className='max-w-[1400px] md:px-0 px-10 mt-40 mx-auto'>
 
-        {/* ===== Desktop Header ===== */}
-        <div className="hidden md:grid grid-cols-6 justify-items-center mb-5 text-2xl font-semibold text-zinc-700">
-          <p>Items</p>
-          <p>Title</p>
-          <p>Price</p>
-          <p>Quantity</p>
-          <p>Total</p>
-          <p>Remove</p>
-        </div>
+    <section className='max-w-[1300px] mx-auto mt-28'>
 
-        <hr className="border-zinc-400 hidden md:block" />
+      <h1 className='text-4xl text-center font-bold mb-7 text-zinc-900'>
+        Shopping Cart
+      </h1>
 
-        {/* ===== Cart Items ===== */}
-        {
-          cart.length === 0 ? (
-            <img className='mx-auto mt-10 w-60 md:w-auto' src={cartEmpty} alt="" />
-          ) : (
-            <AnimatePresence>
-              {cart.map((product, index) => (
+      {
+        cart.length === 0 ? (
+          <img className='mx-auto mt-10 w-60 md:w-auto' src={cartEmpty} alt="" />
+        ) : (
 
-                <motion.div
-                  key={product.id}
-                  layout
-                  initial={{ opacity: 0, x: 80 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -120 }}
-                  transition={{ duration: 0.4 }}
+          <div className="grid md:grid-cols-3 gap-10">
 
-                  className={`${index % 2 === 0
-                      ? 'bg-gradient-to-b from-orange-300 to-orange-300'
-                      : 'bg-white'}
-                      
-                      /* Desktop */
-                      md:grid md:grid-cols-6 md:place-items-center
-                      
-                      /* Mobile */
-                      grid grid-cols-1 gap-3
-                      
-                      text-lg md:text-xl text-zinc-900 font-medium p-4 md:p-0`}
-                >
+            {/* Cart Items */}
+            <div className="md:col-span-2 space-y-4">
 
-                  {/* Image */}
-                  <img className='h-20 md:h-17 mx-auto md:m-1' src={product.image} alt="" />
+              <AnimatePresence>
 
-                  {/* Title */}
-                  <p className='text-center md:text-left'>{product.name}</p>
+                {cart.map((product) => (
 
-                  {/* Price */}
-                  <p className='text-center'>${product.price.toFixed(2)}</p>
+                  <motion.div
+                    key={product.id}
+                    layout
+                    initial={{ opacity: 0, x: 80 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -120 }}
+                    transition={{ duration: 0.4 }}
 
-                  {/* Quantity */}
-                  <div className="flex justify-center items-center border border-black rounded-lg overflow-hidden w-fit mx-auto">
-                    <button
-                      onClick={() => quantityDecrease(product.id)}
-                      className="px-3 py-1 border-r text-2xl font-extrabold border-black hover:bg-gray-100"
-                    >
-                      -
-                    </button>
-
-                    <span className="px-4 py-1">{product.quantity}</span>
-
-                    <button
-                      onClick={() => quantityIncrement(product.id)}
-                      className="px-3 py-1 border-l text-2xl font-bold border-black hover:bg-gray-100"
-                    >
-                      +
-                    </button>
-                  </div>
-
-                  {/* Total */}
-                  <p className='text-center'>${(product.price * product.quantity).toFixed(2)}</p>
-
-                  {/* Remove */}
-                  <p
-                    className='cursor-pointer text-3xl text-center'
-                    onClick={() => removeFromCart(product.id)}
+                    className="bg-zinc-100 rounded-xl shadow-md p-6 flex flex-col md:flex-row items-center gap-6"
                   >
-                    <MdOutlineDelete />
-                  </p>
 
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          )
-        }
+                    {/* Image */}
+                    <img
+                      className='w-24 h-24 object-cover rounded-lg'
+                      src={product.image}
+                      alt=""
+                    />
 
-        {/* ===== Cart Totals Section ===== */}
-        <div className="flex flex-col md:flex-row gap-10 md:gap-20 mt-20 md:pl-10">
+                    {/* Info */}
+                    <div className="flex-1 text-center md:text-left">
 
-          {/* Left Side */}
-          <div className="w-full md:w-1/2">
-            <h1 className='text-3xl md:text-4xl mb-8 md:mb-10 text-zinc-900 font-bold'>Cart Totals</h1>
+                      <h2 className='text-xl font-semibold'>
+                        {product.name}
+                      </h2>
 
-            <div className="flex text-zinc-800 text-lg md:text-xl mt-4 font-medium justify-between">
-              <p>Subtotal</p>
-              <p>{subTotal.toFixed(2)}</p>
+                      <p className='text-orange-500 text-lg font-medium mt-1'>
+                        ${product.price.toFixed(2)}
+                      </p>
+
+                    </div>
+
+                    {/* Quantity */}
+                    <div className="flex items-center border rounded-lg overflow-hidden">
+
+                      <button
+                        onClick={() => quantityDecrease(product.id)}
+                        className="px-3 py-1 text-xl font-bold hover:bg-gray-100"
+                      >
+                        -
+                      </button>
+
+                      <span className="px-4 text-lg py-1">
+                        {product.quantity}
+                      </span>
+
+                      <button
+                        onClick={() => quantityIncrement(product.id)}
+                        className="px-3 py-1 text-xl font-bold hover:bg-gray-100"
+                      >
+                        +
+                      </button>
+
+                    </div>
+
+                    {/* Total */}
+                    <p className='text-lg font-medium'>
+                      ${(product.price * product.quantity).toFixed(2)}
+                    </p>
+
+                    {/* Remove */}
+                    <button
+                      onClick={() => removeFromCart(product.id)}
+                      className='text-red-500 text-2xl hover:scale-110 transition'
+                    >
+                      <MdOutlineDelete />
+                    </button>
+
+                  </motion.div>
+
+                ))}
+
+              </AnimatePresence>
+
             </div>
-            <hr className="mt-3 border-zinc-400" />
 
-            <div className="flex text-zinc-800 text-lg md:text-xl mt-4 font-medium justify-between">
-              <p>Shipping & Handling</p>
-              <p>{shippingFee.toFixed(2)}</p>
+
+            {/* Order Summary */}
+            <div className="bg-zinc-100 shadow-md rounded-xl p-8 h-fit  sticky top-24 ">
+
+              <h2 className="text-3xl font-semibold mb-6">
+                Order Summary
+              </h2>
+
+              <div className="flex justify-between mb-4">
+                <span>Subtotal</span>
+                <span className='font-bold'>${subTotal.toFixed(2)}</span>
+              </div>
+
+              <div className="flex justify-between mb-4">
+                <span>Shipping</span>
+                <span className='font-bold'>${shippingFee.toFixed(2)}</span>
+              </div>
+
+              <hr className="my-4" />
+
+              <div className="flex justify-between text-xl font-bold mb-6">
+                <span>Total</span>
+                <span>${orderTotal.toFixed(2)}</span>
+              </div>
+
+              <Link
+                to='/DeliveryInformation'
+                className='w-full text-center bg-gradient-to-b from-orange-400 to-orange-500 text-white px-8 py-3 rounded-lg text-lg hover:scale-105 hover:from-orange-500 hover:to-orange-600 transition-all duration-300 inline-block'
+              >
+                PROCEED TO CHECKOUT
+              </Link>
+
+              {/* Promo */}
+              <div className="mt-8">
+
+                <p className='text-zinc-700 mb-3'>
+                  Have a promo code?
+                </p>
+
+                <div className="flex gap-2">
+
+                  <input
+                    type="text"
+                    className='flex-1 bg-zinc-200 px-3 py-3 rounded-lg outline-none'
+                    placeholder='Enter promo code'
+                  />
+
+                  <Button content='Apply' />
+
+                </div>
+
+              </div>
+
             </div>
-            <hr className="mt-3 border-zinc-400" />
 
-            <div className="flex mb-7 text-zinc-800 text-lg md:text-xl mt-4 font-medium justify-between">
-              <p>Total</p>
-              <p>{orderTotal.toFixed(2)}</p>
-            </div>
-
-            <Link
-              to='/DeliveryInformation'
-              className='w-full md:w-auto text-center bg-gradient-to-b from-orange-400 to-orange-500 text-white px-8 py-3 rounded-lg md:text-lg text-md hover:scale-105 hover:from-orange-500 hover:to-orange-600 transition-all duration-300 inline-block'
-            >
-              PROCEED TO CHECKOUT
-            </Link>
           </div>
 
-          {/* Right Side */}
-          <div className="w-full md:w-1/2 mt-5 px-0 md:px-3 flex flex-col">
-            <p className='text-lg text-zinc-800'>If you have a promo code, Enter it here</p>
+        )
+      }
 
-            <div className="mt-2 flex flex-col sm:flex-row gap-3">
-              <input
-                type="text"
-                className='w-full sm:w-2/3 focus:outline-none rounded-lg bg-zinc-200 px-3 py-3 text-md md:text-lg'
-                placeholder='promo code'
-              />
-              <Button content='Submit' />
-            </div>
-          </div>
+    </section>
 
-        </div>
-
-      </section>
-    </>
   )
 }
 
